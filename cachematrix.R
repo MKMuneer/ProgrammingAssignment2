@@ -26,10 +26,6 @@ makeCacheMatrix = function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
-
-
 # Function "cacheSolve()" is written is such a way that it will
 # return the inverse of the matrix.
 # It will first check that if the inverse of the given matrix 
@@ -49,3 +45,34 @@ cacheSolve = function(x, ...) {
      x$setinverse(inv)
      inv
 }
+
+# For testing of the functions and code:
+
+# > SAMPLE = c(3,0,2,2,0,-2,0,1,1)
+# > x = matrix(SAMPLE, 3, 3, byrow = T)
+# > m = makeCacheMatrix(x)
+
+
+# > m$get()
+# [,1] [,2] [,3]
+# [1,]    3    0    2
+# [2,]    2    0   -2
+# [3,]    0    1    1
+
+
+# No cache in the first function call:
+# > cacheSolve(m)
+# [,1] [,2] [,3]
+# [1,]  0.2  0.2    0
+# [2,] -0.2  0.3    1
+# [3,]  0.2 -0.3    0
+
+
+# Retrieving from the cache in the second function call:
+# > cacheSolve(m)
+# getting cached data.
+# [,1] [,2] [,3]
+# [1,]  0.2  0.2    0
+# [2,] -0.2  0.3    1
+# [3,]  0.2 -0.3    0
+# > 
